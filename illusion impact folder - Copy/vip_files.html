@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLASSIFIED ARCHIVE - ILLUSION IMPACT</title>
+    
+    <!-- CSS Section: Applying the organized archive design -->
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #E0E0E0;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #FF00FF; /* Purple Divider */
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #39FF14; /* Neon Green */
+            font-size: 3em;
+            letter-spacing: 5px;
+        }
+
+        .header p {
+            color: #FF00FF; /* Neon Purple */
+            font-size: 1.1em;
+        }
+        
+        .archive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .archive-card {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.2); /* Soft green glow */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .archive-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(255, 0, 255, 0.4); /* Purple glow on hover */
+        }
+
+        .card-title {
+            color: #39FF14;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .card-status {
+            color: #FF00FF;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .download-link {
+            display: inline-block;
+            background-color: #FF00FF;
+            color: #FFFFFF;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 3px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .download-link:hover {
+            background-color: #39FF14;
+            color: #0d0d0d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>// CLASSIFIED ARCHIVES //</h1>
+        <p>Welcome, Engineers. This repository contains all exclusive blueprints, engineering reports, and structured fracture lessons. **Access is monitored.**</p>
+    </div>
+
+    <div class="archive-grid">
+        
+        <!-- Project Card 1: Fracture Report -->
+        <div class="archive-card">
+            <div class="card-title">PROJECT 001: The Structured Fracture</div>
+            <p>In-depth report on the engineering of visual and mathematical rule-breaking within our latest designs.</p>
+            <div class="card-status">[STATUS: READY FOR DEPLOYMENT]</div>
+            <!-- NOTE: Replace the link below with a PDF file or Google Drive document -->
+            <a href="#" class="download-link" onclick="alert('Downloading Project 001 Report...')">DOWNLOAD REPORT (PDF)</a> 
+        </div>
+
+        <!-- Project Card 2: Neon Blueprints -->
+        <div class="archive-card">
+            <div class="card-title">PROJECT 002: Neon Blueprint Collection</div>
+            <p>Complete schematics for creating advanced neon lighting and Glitch effects on the web.</p>
+            <div class="card-status">[STATUS: FINALIZED & SECURED]</div>
+            <a href="#" class="download-link" onclick="alert('Downloading Blueprints...')">VIEW BLUEPRINTS</a>
+        </div>
+        
+        <!-- Project Card 3: Behind The Scenes Video -->
+        <div class="archive-card">
+            <div class="card-title">VIDEO LOG: Behind The Scenes - EP03</div>
+            <p>Audio recording session discussing the timeline planning for the next phase of our projects.</p>
+            <div class="card-status">[STATUS: LOGGING COMPLETE]</div>
+            <a href="#" class="download-link" onclick="alert('Accessing Video Log...')">ACCESS VIDEO (MP4)</a>
+        </div>
+        
+        <!-- Add more projects here -->
+
+    </div>
+</body>
+</html>

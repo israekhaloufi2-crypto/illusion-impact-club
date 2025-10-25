@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLASSIFIED ACCESS TERMINAL</title>
+    
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #39FF14; /* لون النيون الأخضر */
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        .terminal-box {
+            background-color: #1a1a1a;
+            border: 2px solid #39FF14;
+            padding: 40px;
+            box-shadow: 0 0 25px rgba(57, 255, 20, 0.7);
+            max-width: 400px;
+            width: 90%;
+            border-radius: 5px;
+        }
+
+        h2 {
+            font-size: 2em;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        p {
+             color: #E0E0E0; /* نص رمادي فاتح */
+        }
+        
+        input[type="text"] {
+            width: 90%;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #000000;
+            color: #39FF14;
+            border: 1px solid #FF00FF; /* إطار أرجواني سري */
+            font-size: 1.1em;
+            text-align: center;
+            letter-spacing: 2px;
+            outline: none;
+            box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+        }
+
+        button {
+            background-color: #FF00FF; /* زر التحقق الأرجواني */
+            color: #FFFFFF;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        button:hover {
+            background-color: #39FF14;
+            box-shadow: 0 0 15px #39FF14;
+        }
+
+        #resultMessage {
+            margin-top: 20px;
+            font-size: 1.1em;
+            color: #E0E0E0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="terminal-box">
+        <h2>[ ACCESS TERMINAL ]</h2>
+        <p>ENTER CLASSIFIED DECRYPTION KEY:</p>
+        <input type="text" id="codeInput" placeholder="K-33-0R-9T" maxlength="12">
+        <button onclick="checkCode()">ACTIVATE ARCHIVE</button>
+        <p id="resultMessage"></p>
+    </div>
+
+    <script>
+        // الكود السري الحقيقي الذي سيعطيه النادي للأعضاء بعد الدفع
+        const SECRET_CODE = "ILLUSION2025"; 
+        
+        // **ملاحظة:** هذا هو اسم الملف الذي سيحتوي على محتوى الـ VIP
+        const VIP_ARCHIVE_URL = "vip_files.html"; 
+
+        function checkCode() {
+            const enteredCode = document.getElementById('codeInput').value.toUpperCase();
+            const message = document.getElementById('resultMessage');
+
+            if (enteredCode === SECRET_CODE) {
+                message.style.color = '#39FF14';
+                message.innerText = "ACCESS GRANTED. Redirecting to Classified Files...";
+                // توجيه المستخدم إلى صفحة الأرشيف الحقيقي
+                setTimeout(() => {
+                    // سيتم التوجيه إلى الملف vip_files.html (الذي سننشئه لاحقًا)
+                    window.location.href = VIP_ARCHIVE_URL;
+                }, 1500);
+
+            } else {
+                message.style.color = '#FF00FF';
+                message.innerText = "ERROR: ACCESS DENIED. KEY INVALID.";
+            }
+        }
+    </script>
+</body>
+</html>
+s

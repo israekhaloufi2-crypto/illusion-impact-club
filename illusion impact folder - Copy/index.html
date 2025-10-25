@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ILLUSION IMPACT: CLASSIFIED ARCHIVES</title>
+    
+    <!-- قسم CSS: لتطبيق المظهر الداكن وتأثيرات الـ Glitch -->
+    <style>
+        /* إعدادات الخلفية والخطوط الأساسية */
+        body {
+            background-color: #0d0d0d; /* خلفية داكنة جداً */
+            color: #E0E0E0; /* لون النص الأساسي */
+            font-family: 'Courier New', Courier, monospace; /* خط تقني / كودي */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+            overflow: hidden; /* لمنع شريط التمرير عند حركة الزر */
+            animation: fadeIn 2s; /* تأثير ظهور خفيف عند التحميل */
+        }
+        
+        /* تأثير ظهور الصفحة */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* عنوان النادي */
+        h1 {
+            color: #39FF14; /* لون أخضر نيون حاد */
+            font-size: 3.5em;
+            margin-bottom: 5px;
+            letter-spacing: 8px; /* تباعد الحروف لمظهر كودي */
+            text-shadow: 0 0 5px rgba(57, 255, 20, 0.5); /* توهج نيون */
+            /* تطبيق تأثير Glitch خفيف على العنوان */
+            animation: glitch-title 1.5s infinite alternate;
+        }
+
+        /* تأثير Glitch خفيف على العنوان */
+        @keyframes glitch-title {
+            0% { transform: translate(1px, -1px); }
+            50% { transform: translate(-1px, 1px); }
+            100% { transform: translate(1px, -1px); }
+        }
+
+        .status {
+            color: #FF00FF; /* لون أرجواني سري */
+            font-size: 1.2em;
+            margin-bottom: 80px;
+        }
+
+        /* تصميم الزر المتحرك / بوابة الدفع */
+        .glitch-button {
+            background-color: #39FF14; 
+            color: #0d0d0d; 
+            padding: 20px 40px;
+            font-size: 1.4em;
+            border: none;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            position: relative; /* ضروري لحركة JavaScript */
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.8); /* توهج نيون قوي */
+            border-radius: 5px;
+        }
+
+        .glitch-button:active {
+            box-shadow: 0 0 30px #FF00FF; /* تغيير التوهج إلى الأرجواني عند النقر */
+        }
+        
+        .message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #1a1a1a;
+            border: 2px solid #39FF14;
+            padding: 20px;
+            box-shadow: 0 0 20px #FF00FF;
+            z-index: 1000;
+            display: none; /* مخفي بشكل افتراضي */
+        }
+        
+        .message-box p { color: #E0E0E0; }
+        .message-box button { margin-top: 10px; background-color: #39FF14; color: #0d0d0d; padding: 10px; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <!-- العنوان الرئيسي -->
+        <h1>ILLUSION IMPACT CLUB</h1>
+        <p class="status">[ SYSTEM PROTOCOL: ACCESS RESTRICTED ]</p>
+        
+        <!-- الزر المتحرك (بوابة الدفع) -->
+        <button id="accessButton" class="glitch-button">
+            🔑 PURCHASE CODE: VIP ACCESS FILES
+        </button>
+    </div>
+    
+    <!-- مربع الرسالة (بديل لـ alert) -->
+    <div id="messageBox" class="message-box">
+        <p id="messageText"></p>
+        <button onclick="document.getElementById('messageBox').style.display='none'">Close</button>
+    </div>
+
+    <!-- قسم JavaScript: لتفعيل حركة الـ Glitch والوظائف -->
+    <script>
+        // دالة لإظهار الرسائل (بدلاً من alert)
+        function showMessage(text) {
+            document.getElementById('messageText').innerText = text;
+            document.getElementById('messageBox').style.display = 'block';
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const button = document.getElementById('accessButton');
+            const maxMovement = 150; // الحد الأقصى للمسافة التي يتحركها الزر
+            const moveProbability = 0.6; // احتمالية حركة الزر (60%)
+
+            // الدالة التي يتم استدعاؤها عند تحريك الفأرة فوق الزر (لتفعيل الـ Glitch)
+            button.addEventListener('mouseover', () => {
+                // نتحقق أولاً ما إذا كان الزر سيتحرك بناءً على الاحتمالية
+                if (Math.random() < moveProbability) {
+                    const randomX = Math.random() * maxMovement - (maxMovement / 2);
+                    const randomY = Math.random() * maxMovement - (maxMovement / 2);
+
+                    // تطبيق الحركة العشوائية
+                    button.style.transform = `translate(${randomX}px, ${randomY}px) scale(0.98)`;
+                    button.style.boxShadow = '0 0 30px #FF00FF'; // وميض أرجواني للحظة
+                }
+            });
+
+            // دالة لتنظيف الحركة عندما تبتعد الفأرة
+            button.addEventListener('mouseout', () => {
+                button.style.transform = 'translate(0, 0) scale(1)';
+                button.style.boxShadow = '0 0 20px rgba(57, 255, 20, 0.8)'; // العودة للتوهج الأصلي
+            });
+
+            // توجيه الزر إلى بوابة الدفع عند النقر الفعلي
+            button.addEventListener('click', () => {
+                showMessage('ACCESS INITIATED. Redirecting to SECURE PAYMENT TERMINAL to purchase VIP Code.');
+                
+                // بعد الدفع الخارجي، يتم توجيههم لصفحة إدخال الكود
+                setTimeout(() => {
+                     // **هنا، ننتقل إلى الصفحة الثانية التي سننشئها الآن**
+                     window.location.href = 'code_entry.html'; 
+                }, 2000); 
+            });
+        });
+    </script>
+</body>
+</html>
